@@ -278,11 +278,22 @@ inline Matrix4 normalMatrix(const Matrix4& m) {
 }
 
 inline Matrix4 transFact(const Matrix4& m) {
-  // TODO
+	// TODO: fill in your own implementation below
+	// ============================================
+
+
+	// ============================================
+	//~end of your own implementation
 }
 
 inline Matrix4 linFact(const Matrix4& m) {
-  // TODO
+	// TODO: fill in your own implementation below
+	// ============================================
+
+
+	// ============================================
+	//~end of your own implementation
+	
 }
 
 #endif

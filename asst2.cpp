@@ -4,6 +4,7 @@
 //   CS175 : Computer Graphics
 //   Professor Steven Gortler
 //
+//	 modified by Ming Jin, 06/28/2013
 ////////////////////////////////////////////////////////////////////////
 
 #include <vector>
@@ -47,7 +48,13 @@ using namespace tr1; // for shared_ptr
 // To complete the assignment you only need to edit the shader files that get
 // loaded
 // ----------------------------------------------------------------------------
+
+// Mac OS X (Mountain Lion 10.8.x) does not support GLSL 1.3
+#ifdef __MAC__
+static const bool g_Gl2Compatible = true;
+#else
 static const bool g_Gl2Compatible = false;
+#endif
 
 
 static const float g_frustMinFov = 60.0;  // A minimal of 60 degree field of view
@@ -64,6 +71,12 @@ static bool g_mouseClickDown = false;    // is the mouse button pressed
 static bool g_mouseLClickButton, g_mouseRClickButton, g_mouseMClickButton;
 static int g_mouseClickX, g_mouseClickY; // coordinates for mouse click event
 static int g_activeShader = 0;
+// TODO: you can add global variables below
+// ============================================
+
+
+// ============================================
+//~end of added global variables
 
 struct ShaderState {
   GlProgram program;
@@ -188,8 +201,15 @@ static shared_ptr<Geometry> g_ground, g_cube;
 
 static const Cvec3 g_light1(2.0, 3.0, 14.0), g_light2(-2, -3.0, -5.0);  // define two lights positions in world space
 static Matrix4 g_skyRbt = Matrix4::makeTranslation(Cvec3(0.0, 0.25, 4.0));
+
+// TODO: add a second cube's 
+// 1. transformation
+// 2. color
+// ============================================
 static Matrix4 g_objectRbt[1] = {Matrix4::makeTranslation(Cvec3(0,0,0))};  // currently only 1 obj is defined
 static Cvec3f g_objectColors[1] = {Cvec3f(1, 0, 0)};
+// ============================================
+//~end
 
 ///////////////// END OF G L O B A L S //////////////////////////////////////////////////
 
